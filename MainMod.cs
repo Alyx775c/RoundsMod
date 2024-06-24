@@ -73,28 +73,7 @@ namespace RoundsMod
                 gun.gravity = 0;
                 gun.spread = 0;
             }
-
-            Gun sprayGun = GameObject.Find("SPRAY(Clone)").GetComponent<Gun>();
-
-            sprayGun.attackSpeed = 0.0055f;
-            // spray with barrage 
-            sprayGun.numberOfProjectiles = 10;
-            sprayGun.spread = 0.015f;
-
         }
 
     }
-
-    [HarmonyPatch(typeof(GunAmmo))]
-    public static class GunAmmoPatches
-    {
-        [HarmonyPrefix]
-        [HarmonyPatch("ReloadTime")]
-        public static bool PrefixReloadTime(ref float __result)
-        {
-            __result = -0.1f;
-            return false;
-        }
-    }
-
 }
