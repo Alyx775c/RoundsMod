@@ -4,10 +4,10 @@ namespace RoundsMod.Mods
 {
     internal class Buttons
     {
-        public static ButtonInfo[][] buttons = new ButtonInfo[][]
+        public static ButtonInfo[][] button = new ButtonInfo[][]
         {
             new ButtonInfo[] { // Main shit
-                new ButtonInfo{buttonText="Disconnect", method = () => Utility.Disconnect(), isTogglable=false }
+                //new ButtonInfo{buttonText="Disconnect", method = () => Utility.Disconnect(), isTogglable=false }
             }
         };
     }
