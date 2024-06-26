@@ -12,8 +12,6 @@ namespace RoundsMenu.Classes
         public Vector2 position = Vector2.zero;
         public Vector2 size = Vector2.zero;
         public Action method = null;
-        public Action enableMethod = null;
-        public Action disableMethod = null;
         public bool enabled = false;
         public bool isTogglable = true;
     }

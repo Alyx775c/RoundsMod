@@ -55,15 +55,21 @@ namespace RoundsMenu.Menu
                   buttonPrefab.GetComponentInChildren<TextMeshProUGUI>();
 
                 buttonTransform.SetParent(
-                  GameObject.Find(Path.Combine("ModCanvas(Clone)/ModPanel/" + buttonInfo.page + "Page")).transform);
+                  GameObject.Find("ModCanvas(Clone)/ModPanel/" + buttonInfo.page + "Page").transform);
 
-                buttonTransform.anchoredPosition = buttonInfo.anchorPoint;
-                buttonTransform.sizeDelta = buttonInfo.size;
+                buttonTransform.anchorMin = buttonInfo.anchorPoint;
+                buttonTransform.anchorMax = buttonInfo.anchorPoint;
+
+                buttonTransform.localScale = new(1, 1, 1);
+
                 buttonTransform.localPosition = buttonInfo.position;
+                buttonTransform.sizeDelta = buttonInfo.size;
 
                 buttonObject.onClick.AddListener(() => buttonInfo.method());
-                
+
                 buttonText.text = buttonInfo.buttonText;
+                buttonText.autoSizeTextContainer = true;
+                buttonText.fontSizeMin = 0;
             }
 
         }
