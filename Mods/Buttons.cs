@@ -2,13 +2,14 @@
 
 namespace RoundsMod.Mods
 {
-    internal class Buttons
+    class Buttons
     {
-        public static ButtonInfo[][] button = new ButtonInfo[][]
-        {
-            new ButtonInfo[] { // Main shit
-                //new ButtonInfo{buttonText="Disconnect", method = () => Utility.Disconnect(), isTogglable=false }
-            }
-        };
+        public static ButtonInfo[][] button =
+        [
+            [ // Main
+                new() {buttonText="Fire Faster", method = () => OP.FastFireOn(), disableMethod = () => OP.FastFireOff(), isTogglable=true }
+            ],
+            // other stuff
+        ];
     }
 }
