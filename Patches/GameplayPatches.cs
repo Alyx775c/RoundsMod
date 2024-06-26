@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace RoundsMod.Patches
+namespace RoundsMenu.Patches
 {
     [HarmonyPatch(typeof(GunAmmo))]
     public static class GunAmmoPatches

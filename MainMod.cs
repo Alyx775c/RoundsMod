@@ -1,10 +1,12 @@
 ﻿using BepInEx;
 using HarmonyLib;
-using RoundsMod.Menu;
+using RoundsMenu.Classes;
+using RoundsMenu.Menu;
+using RoundsMenu.Mods;
 using System.IO;
 using UnityEngine;
 
-namespace RoundsMod
+namespace RoundsMenu
 {
     [BepInPlugin(pluginGUID, pluginName, pluginVersion)]
     public class MyMod : BaseUnityPlugin
@@ -13,7 +15,7 @@ namespace RoundsMod
         public const string pluginName = "Rounds Hacks";
         public const string pluginVersion = "0.1";
 
-        AssetBundle uiBundle;
+        private AssetBundle uiBundle;
 
         public void Awake()
         {
@@ -24,7 +26,7 @@ namespace RoundsMod
             uiBundle = AssetBundle.LoadFromFile(Path.Combine(Paths.PluginPath, "RoundsMod/Assets/UI.bundle"));
         }
 
-        public void OnGUI()
+        public void Start()
         {
             MainModMenuHandler mMMHandler = new();
 

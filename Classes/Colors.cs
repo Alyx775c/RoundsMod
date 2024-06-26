@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace RoundsMod.Classes
+namespace RoundsMenu.Classes
 {
     class colours
     {

@@ -1,6 +1,6 @@
 ﻿using Photon.Pun;
 
-namespace RoundsMod.Mods
+namespace RoundsMenu.Mods
 {
     internal class OP
     {

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
 
-namespace RoundsMod.Classes
+namespace RoundsMenu.Classes
 {
-    class AnchorPoints
+    static class AnchorPoints
     {
         public static Vector2 TopLeft = new(0, 1f);
         public static Vector2 TopRight = new(1f, 1f);
@@ -14,5 +14,4 @@ namespace RoundsMod.Classes
         public static Vector2 MiddleBottom = new(0.5f, 0f);
         public static Vector2 MiddleTop = new(0.5f, 1f);
     }
-
 }
