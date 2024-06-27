@@ -30,7 +30,7 @@ namespace RoundsMenu
         {
             MainModMenuHandler mMMHandler = new();
 
-            mMMHandler.AddMenu(uiBundle);
+            mMMHandler.AddMenu(uiBundle, Logger);
         }
     }
 }

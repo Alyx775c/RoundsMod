@@ -5,13 +5,13 @@ using RoundsMenu.Classes;
 using RoundsMenu.Mods;
 using TMPro;
 using UnityEngine.UI;
-using System.IO;
+using BepInEx.Logging;
 
 namespace RoundsMenu.Menu
 {
     public class MainModMenuHandler
     {
-        public void AddMenu(AssetBundle uiAssetBundle)
+        public void AddMenu(AssetBundle uiAssetBundle, ManualLogSource logger)
         {
             GameObject Menu = uiAssetBundle.LoadAsset<GameObject>("ModCanvas");
             GameObject ButtonPrefab = uiAssetBundle.LoadAsset<GameObject>("Button");
@@ -21,6 +21,7 @@ namespace RoundsMenu.Menu
             try
             {
                 menuCanvas = Object.Instantiate(Menu);
+                GameObject.DontDestroyOnLoad(menuCanvas);
             }
             catch (Exception e)
             {
@@ -56,6 +57,8 @@ namespace RoundsMenu.Menu
 
                 buttonTransform.SetParent(
                   GameObject.Find("ModCanvas(Clone)/ModPanel/" + buttonInfo.page + "Page").transform);
+
+                Transform buttonParent = buttonTransform.parent.transform;
 
                 buttonTransform.anchorMin = buttonInfo.anchorPoint;
                 buttonTransform.anchorMax = buttonInfo.anchorPoint;

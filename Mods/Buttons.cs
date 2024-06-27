@@ -1,5 +1,4 @@
 ﻿using RoundsMenu.Classes;
-using UnityEngine;
 using static RoundsMenu.Classes.Pages;
 
 namespace RoundsMenu.Mods
@@ -8,13 +7,12 @@ namespace RoundsMenu.Mods
     {
         public static ButtonInfo[] button = [
             new (){
-                anchorPoint = AnchorPoints.TopLeft,
-                buttonText = "Switch To OP page",
+                buttonText = "OP mods",
                 isTogglable = false,
                 method = () => PageHandler.ChangePage(Page.OP),
                 page = Page.Front,
-                position = new(-30f, 67f),
-                size = new(115, 30),
+                position = new(-94.3f, 114.6f),
+                size = new(80, 25),
             }
         ];
     }
