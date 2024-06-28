@@ -1,14 +1,24 @@
 ﻿using Photon.Pun;
+using RoundsMenu.Classes;
+using UnityEngine;
 
 namespace RoundsMenu.Mods
 {
-    internal class OP
+    class OP
     {
-        public static void FastFireOn()
+        public static void FastFire(ButtonInfo buttonInfo)
         {
+            Gun gun = GameObject.Find("Player(Clone)").GetComponent<Gun>();
 
+            if (!buttonInfo.enabled)
+            {
+                gun.reloadTime = .1f;
+            } else
+            {
+                gun.reloadTime = .3f;
+            }
+
+            buttonInfo.enabled = !buttonInfo.enabled;
         }
-
-        public static void FastFireOff() { }
     }
 }

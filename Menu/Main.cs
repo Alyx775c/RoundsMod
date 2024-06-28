@@ -6,6 +6,7 @@ using RoundsMenu.Mods;
 using TMPro;
 using UnityEngine.UI;
 using BepInEx.Logging;
+using System.Runtime.InteropServices;
 
 namespace RoundsMenu.Menu
 {
@@ -62,19 +63,38 @@ namespace RoundsMenu.Menu
 
                 buttonTransform.anchorMin = buttonInfo.anchorPoint;
                 buttonTransform.anchorMax = buttonInfo.anchorPoint;
-
                 buttonTransform.localScale = new(1, 1, 1);
-
                 buttonTransform.localPosition = buttonInfo.position;
                 buttonTransform.sizeDelta = buttonInfo.size;
 
-                buttonObject.onClick.AddListener(() => buttonInfo.method());
+                if (buttonInfo.isTogglable)
+                {
+                    buttonObject.onClick.AddListener(() => ActionHelperToggle(() => buttonInfo.method(), buttonText, buttonInfo.enabled, logger));
+                }
+                else
+                {
+                    buttonObject.onClick.AddListener(() => buttonInfo.method());
+                }
 
                 buttonText.text = buttonInfo.buttonText;
                 buttonText.fontSize = buttonInfo.fontSize;
                 buttonText.gameObject.GetComponent<RectTransform>().sizeDelta = buttonInfo.size;
             }
 
+        }
+
+        public Action ActionHelperToggle(Action action, TextMeshProUGUI tmproUGUI, bool isEnabling, ManualLogSource logger)
+        {
+            if (isEnabling)
+            {
+                tmproUGUI.color = Color.blue;
+            }
+            else
+            {
+                tmproUGUI.color = new(50, 50, 50);
+            }
+
+            return () => action();
         }
     }
 }
