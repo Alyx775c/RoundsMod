@@ -8,7 +8,7 @@ namespace RoundsMenu.Mods
         public static ButtonInfo[] button = [
             new (){
                 anchorPoint = AnchorPoints.TopLeft,
-                buttonText = "OP mods",
+                buttonText = "OP Mods",
                 isTogglable = false,
                 method = () => PageHandler.ChangePage(Page.OP),
                 page = Page.Front,
