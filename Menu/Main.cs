@@ -71,8 +71,8 @@ namespace RoundsMenu.Menu
                 buttonObject.onClick.AddListener(() => buttonInfo.method());
 
                 buttonText.text = buttonInfo.buttonText;
-                buttonText.autoSizeTextContainer = true;
-                buttonText.fontSizeMin = 0;
+                buttonText.fontSize = buttonInfo.fontSize;
+                buttonText.gameObject.GetComponent<RectTransform>().sizeDelta = buttonInfo.size;
             }
 
         }
