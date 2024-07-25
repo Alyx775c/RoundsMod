@@ -6,7 +6,6 @@ using RoundsMenu.Mods;
 using TMPro;
 using UnityEngine.UI;
 using BepInEx.Logging;
-using System.Runtime.InteropServices;
 
 namespace RoundsMenu.Menu
 {
@@ -69,7 +68,9 @@ namespace RoundsMenu.Menu
 
                 if (buttonInfo.isTogglable)
                 {
-                    buttonObject.onClick.AddListener(() => ActionHelperToggle(() => buttonInfo.method(), buttonText, buttonInfo.enabled, logger));
+                    buttonObject.onClick.AddListener(() =>
+                        ActionHelperToggle(() =>
+                            buttonInfo.method(), buttonText, buttonInfo.enabled, buttonInfo, logger));
                 }
                 else
                 {
@@ -83,16 +84,22 @@ namespace RoundsMenu.Menu
 
         }
 
-        public Action ActionHelperToggle(Action action, TextMeshProUGUI tmproUGUI, bool isEnabling, ManualLogSource logger)
+        public Action ActionHelperToggle(Action action, TextMeshProUGUI tmproUGUI, bool isEnabling, ButtonInfo info, ManualLogSource logger)
         {
             if (isEnabling)
             {
-                tmproUGUI.color = Color.blue;
+                logger.LogInfo("blue");
+                tmproUGUI.color = Colors.colorToUnity(Colors.DarkBlue);
             }
             else
             {
-                tmproUGUI.color = new(50, 50, 50);
+                logger.LogInfo("black");
+                tmproUGUI.color = Colors.colorToUnity(Colors.DarkGray);
             }
+
+            logger.LogInfo(info.enabled);
+            info.ToggleEnabled();
+            logger.LogInfo(info.enabled);
 
             return () => action();
         }

@@ -7,8 +7,14 @@ using UnityEngine;
 
 namespace RoundsMenu.Classes
 {
-    class colours
+    class Colors
     {
-        public static Color DarkGray { get; } = new Color(255, 87, 51);
+        public static Color DarkGray { get; } = new(15, 15, 15);
+        public static Color DarkBlue { get; } = new(6, 47, 59);
+
+        public static Color colorToUnity(Color color)
+        {
+            return new(color.r / 255, color.g / 255, color.b / 255);
+        }
     }
 }

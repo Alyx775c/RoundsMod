@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using RoundsMenu.Classes;
 using UnityEngine;
+using System;
 
 namespace RoundsMenu.Mods
 {
@@ -8,17 +9,17 @@ namespace RoundsMenu.Mods
     {
         public static void FastFire(ButtonInfo buttonInfo)
         {
-            Gun gun = GameObject.Find("Player(Clone)").GetComponent<Gun>();
+            Gun gun;
+            gun = GameObject.Find("WeaponHandler(Clone)").GetComponent<Gun>();
 
-            if (!buttonInfo.enabled)
+            if (buttonInfo.enabled)
             {
-                gun.reloadTime = .1f;
-            } else
-            {
-                gun.reloadTime = .3f;
+                gun.reloadTime = .05f;
             }
-
-            buttonInfo.enabled = !buttonInfo.enabled;
+            else
+            {
+                gun.reloadTime = .2f;
+            }
         }
     }
 }

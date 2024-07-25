@@ -15,5 +15,10 @@ namespace RoundsMenu.Classes
         public Page page = Page.None;
         public Vector2 position = Vector2.zero;
         public Vector2 size = Vector2.zero;
+
+        public void ToggleEnabled()
+        {
+            enabled = !enabled;
+        }
     }
 }
